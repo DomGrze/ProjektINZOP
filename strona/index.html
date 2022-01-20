@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona główna</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <?php
+   
+   $user = "Andrzej";
+   
+   ?>
+    <div id="container">
+        <div id="header">
+            <div id="logo">logo <br>placeholder</div>
+            <div id="nav">
+                <button id="button">FAQ</button>
+                <button id="button">Galeria</button>
+                <button id="button">Transmisja na żywo</button>
+                <button id="button">Zagłosuj</button>
+                <button id="button">Harmonogram wystaw</button>
+                <button id="button">Aktualności</button>
+            </div>
+        </div>
+        <div id="content">
+            <div id="mid"><b></b>
+                <div id="mid-header">Aktualności</div>
+                <div id="mid-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu risus quis varius quam quisque. Aenean euismod elementum nisi quis eleifend quam. Molestie ac feugiat sed lectus vestibulum mattis. Nunc lobortis mattis aliquam faucibus purus in massa tempor.<br> Eu volutpat odio facilisis mauris sit amet. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Scelerisque eleifend donec pretium vulputate sapien nec sagittis. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Orci sagittis eu volutpat odio. Gravida arcu ac tortor dignissim convallis aenean et.<br> Consectetur adipiscing elit duis tristique sollicitudin nibh sit. Fames ac turpis egestas maecenas pharetra convallis. Nibh praesent tristique magna sit amet purus gravida quis blandit. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Tincidunt eget nullam non nisi est sit amet. Mauris cursus mattis molestie a iaculis at.<br></div>
+            </div>
+            <div id="right-bar">
+                <div id="right-bar-header"><?php
+                echo "Witaj $user!"?></div>
+                <div id="right-bar-content1">Chcesz wziąć udział w wystawie?<br>Dołącz do nas!</div>
+                <div id="right-bar-content2">
+                    <button id="button1">Zaloguj</button>
+                    <button id="button1">Zarejestruj</button>
+                    <a href="regulamin"><br>Regulamin</a>
+                </div>
+                <div id="right-bar-content3"></div>
+                <div id="right-bar-content4"></div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+
+</html>
