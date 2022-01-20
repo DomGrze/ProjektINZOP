@@ -1,7 +1,7 @@
 <?php
-   // session_start();
+   session_start();
     
-    if((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==false)){
+    if(!isset($_SESSION['zalogowany'])){
         header('Location: index.php');
         exit();
     }
@@ -33,7 +33,7 @@
                 <button id="button"><a href="transmisja.php">Transmisja na żywo</a></button>
                 <button id="button"><a href="zaglosuj.php">Zagłosuj</a></button>
                 <button id="button"><a href="harmonogram.php">Harmonogram wystaw</a></button>
-                    <button id="button"><a href="aktualnosci.php">Aktualności</a></button>
+                <button id="button"><a href="aktualnosci.php">Aktualności</a></button>
             </div>
         </div>
         <div id="content">
@@ -42,9 +42,11 @@
                 <div id="mid-content">placeholder</div>
             </div>
             <div id="right-bar">
-                <div id="right-bar-header"><?php
-                echo "Witaj $user!"?></div>
-                <div id="right-bar-content1"></div>
+                <div id="right-bar-header">
+                    <?php
+                        echo "Witaj &nbsp;".$_SESSION['user']."!";
+                    ?></div>
+                <div id="right-bar-content1"><button id="button1"><a href="wyloguj.php">Wyloguj się</a></button></div>
                 <div id="right-bar-content2">
                 </div>
                 <div id="right-bar-content3"></div>

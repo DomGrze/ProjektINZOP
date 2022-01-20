@@ -1,5 +1,5 @@
 <?php
-   // session_start();
+    session_start();
     
     if((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true)){
         header('Location: glowna.php');
@@ -78,7 +78,11 @@
                     <button id="button1" onclick="zarejestruj()">Zarejestruj</button>
                     <a href="regulamin.php"><br><u>Regulamin</u></a>
                 </div>
-                <div id="right-bar-content3"></div>
+                <div id="right-bar-content3"><?php
+        if(isset($_SESSION['blad'])) {
+            echo $_SESSION['blad'];
+        }
+        ?></div>
                 <div id="right-bar-content4"></div>
             </div>
         </div>
