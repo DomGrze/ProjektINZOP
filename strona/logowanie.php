@@ -19,6 +19,9 @@ else
     $login = $_POST['login'];
     $password = $_POST['password'];
     
+    $login = htmlentities($login, ENT_QUOTES, "UTF-8");
+    $password = htmlentities($password, ENT_QUOTES, "UTF-8");
+    
     $sql = "SELECT * FROM konta WHERE login='$login' AND haslo='$password'";
     
     if ($rezultat = @$polaczenie->query($sql))
