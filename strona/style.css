@@ -93,7 +93,7 @@ body {
 }
 
 #panel2-content {
-    font-size: 24px;
+    font-size: 18px;
 }
 
 #mid-header {
@@ -169,11 +169,14 @@ div {
 }
 
 #anuluj {
-    position: absolute;
     right: 45%;
     bottom: 10%;
     height: 5% ;
     width: 10%;
+}
+
+#rejestr:hover{
+    background-color: aqua;
 }
 
 #anuluj:hover{
@@ -187,4 +190,9 @@ div {
 a {
     text-decoration: none;
     color: black;
+}
+
+#error {
+    color: red;
+    
 }

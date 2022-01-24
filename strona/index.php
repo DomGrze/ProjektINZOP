@@ -5,8 +5,9 @@
         header('Location: glowna.php');
         exit();
     }
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -14,13 +15,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <title>Strona główna</title>
-    <style>
-        a {
-            text-decoration: none;
-            color: black
-        }
-
-    </style>
 </head>
 
 <body>
@@ -40,6 +34,7 @@
             <div id="mid"><b></b>
                 <div id="mid-header">Aktualności</div>
                 <div id="mid-content">placeholder</div>
+                <!--Panel logowania-->
                 <div id="panel">
                     <div id="panel-header">Logowanie</div>
                     <div id="panel-content">
@@ -53,18 +48,44 @@
                         Nie posiadasz konta?<br /> <a onclick="zarejestruj()"><u>Rejestracja</u></a>
                     </div>
                 </div>
+                <!--Panel rejestracji-->
                 <div id="panel2">
-                    <div id="panel2-header">Rejestracja</div>
+                    <div id="panel2-header">
+                        <!-- Informacja o istniejącym adresie email -->
+                        <?php
+                            if(isset($_SESSION['e_email'])) 
+                            {
+                                echo '<span style="color:red;"</span>'.$_SESSION['e_email'];
+                            }
+                            elseif(isset($_SESSION['e_login']))
+                            {
+                                echo '<span style="color:red;"</span>'.$_SESSION['e_login'];
+                            }
+                            else
+                            {
+                                //Komunikaty błędu zastępują napis Rejestracja
+                                echo "Rejestracja";
+                            }
+                        ?>
+                    </div>
                     <div id="panel2-content">
                         <form action="rejestracja.php" method="post">
-                            Login: <input type="text" name="login" required /><br /><br />
-                            Hasło: <input type="password" name="password" required /> <br /><br />
-                            Powtórz hasło: <input type="password" name="password" required /> <br /><br />
-                            Adres e-mail <input type="text" name="email" required /> <br /><br />
-                            Data urodzenia <input type="date" name="data_ur" required /> <br /><br />
-                            <input type="checkbox" required />Akceptuje <a href="regulamin.php"><u>regulamin</u></a><br /><br />
-                            <input type="submit" value="Zarejestruj się" /><br /><br />
-                            Masz już konto?<br /> <a onclick="zaloguj()"><u>Zaloguj się!</u></a>
+                            Login: <input type="text" title="Od 3 do 20 znaków(Tylko litery i cyfry bez spacji!)" name="login" minlength="3" maxlength="20" required pattern="[a-zA-Z0-9]+" /><br />
+                            <br />
+                            Hasło: <input type="password" title="Od 6 do 20 znaków" id="password1" minlength="6" maxlength="20" required /> <br />
+                            <br />
+                            Powtórz hasło: <input type="password" title="Od 6 do 20 znaków" id="password2" name="password" minlength="6" maxlength="20" required /> <br />
+                            <br />
+                            Imię: <input type="text" name="imie" maxlength="30" required /><br /><br />
+                            Nazwisko: <input type="text" name="nazwisko" maxlength="30" required /><br /><br />
+                            Numer telefonu: <input type="number" name="nr_tel" maxlength="13" pattern="[0-9]" required /><br /><br />
+                            Adres e-mail <input type="email" name="email" required /> <br />
+                            Data urodzenia <input type="date" id="data_ur" name="data_ur" value="2000-01-01" max="" required /> <br />
+                            <label>
+                                <input type="checkbox" required />Akceptuje <a href="regulamin.php"><u>regulamin</u></a><br />
+                            </label>
+                            <!-- Nie wiem czemu nie mogę zmienić nic w CSS dla tego przycisku -->
+                            <input type="submit" name="rejestr" value="Zarejestruj się" /><br /><br />
                         </form>
                         <button id="anuluj" onclick="anuluj()">anuluj</button>
                     </div>
@@ -78,6 +99,7 @@
                     <button id="button1" onclick="zarejestruj()">Zarejestruj</button>
                     <a href="regulamin.php"><br><u>Regulamin</u></a>
                 </div>
+                <!--Błąd danych logowania-->
                 <div id="right-bar-content3"><?php
         if(isset($_SESSION['blad'])) {
             echo $_SESSION['blad'];
@@ -88,6 +110,7 @@
         </div>
         <div id="footer"></div>
     </div>
+    <!--Funkcje dla przycisków strony głównej-->
     <script>
         function zaloguj() {
             document.getElementById("panel").style.display = "block";
@@ -114,6 +137,54 @@
         }
 
     </script>
+    <!--Sprawdzanie, czy hasło i powtórzone hasło przy rejestracji różnią się-->
+    <script>
+        var password1 = document.getElementById("password1"),
+            password2 = document.getElementById("password2");
+
+        function validatePassword() {
+            if (password1.value != password2.value) {
+                password2.setCustomValidity("Podane hasła różnią się!");
+            } else {
+                password2.setCustomValidity("");
+            }
+        }
+
+        password1.onchange = validatePassword;
+        password2.onkeyup = validatePassword;
+
+    </script>
+    <!--Max data do wprowadzenia przy rejestracji zależna od dzisiejszej daty-->
+    <script>
+        var dtToday = new Date();
+        var day = dtToday.getDate();
+        var month = dtToday.getMonth() + 1; //+1 bo styczeń ma wartość 0
+        var year = dtToday.getFullYear();
+
+        if (day < 10) {
+            day = '0' + day
+        }
+        if (month < 10) {
+            month = '0' + month
+        }
+
+        dtToday = year + '-' + month + '-' + day;
+        document.getElementById("data_ur").setAttribute("max", dtToday);
+
+    </script>
+    <!-- Błąd maila -->
+    <?php
+        if (isset($_SESSION['e_email'])) 
+        {
+            echo '<script type="text/javascript">zarejestruj();</script>';
+            unset($_SESSION['e_email']);
+        }
+        elseif(isset($_SESSION['e_login']))
+        {
+            echo '<script type="text/javascript">zarejestruj();</script>';
+            unset($_SESSION['e_login']);
+        }
+        ?>
 </body>
 
 </html>
