@@ -1,0 +1,233 @@
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    background-color: beige;
+}
+
+#container {
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    padding: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: antiquewhite;
+}
+
+#header {
+    width: 100%;
+    height: 20%;
+    margin: 0;
+    padding: 0;
+}
+
+#logo {
+    width: 20%;
+    height: 100%;
+    float: left;
+    text-align: inherit;
+    
+}
+
+
+#nav {
+    width: 80%;
+    height: 100%;
+    float: right;
+}
+
+#button:hover {
+    background-color: burlywood;
+}
+
+#content {
+    width: 100%;
+    height: 70%;
+    margin: 0;
+    padding: 0;
+}
+
+#mid {
+    width: 80%;
+    height: 100%;
+    float: left;
+}
+
+#panel {
+    display: none;
+    width: 50%;
+    height: 100%;
+    background-color: beige;
+    margin: auto;
+    padding: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid black;
+}
+
+#panel-header {
+    font-size: 36px;
+}
+
+#panel-content {
+    font-size: 24px;
+}
+
+#panel2 {
+    display: none;
+    width: 50%;
+    height: 100%;
+    background-color: beige;
+    margin: auto;
+    padding: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid black;
+}
+
+#panel2-header {
+    font-size: 36px;
+}
+
+#panel2-content {
+    font-size: 18px;
+}
+
+#mid-header {
+    width: 99.8%;
+    height: 10%;
+    float: right;
+    border: 1px solid;
+    font-size: 24px;
+}
+
+#mid-content {
+    width: 99.8%;
+    height: 90%;
+    float: right;
+    border: 1px solid;
+    font-size: 16px;
+}
+
+#right-bar {
+    width: 20%;
+    height: 100%;
+    float: right;
+}
+
+#right-bar-header {
+    width: 100%;
+    height: 10%;
+    float: right;
+    border: 1px solid;
+}
+
+#right-bar-content1 {
+    width: 100%;
+    height: 20%;
+    float: right;
+    border: 1px solid;
+}
+
+#right-bar-content2 {
+    width: 100%;
+    height: 10%;
+    float: right;
+    border: 1px solid;
+}
+
+#right-bar-content3 {
+    width: 100%;
+    height: 59.2%;
+    float: right;
+    border: 1px solid;
+}
+
+#footer {
+    width: 100%;
+    height: 10%;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    text-align: center;
+}
+
+#button {
+    float: right;
+    min-height: 100%;
+    width: 12.555%;
+    font-size: 16px;
+}
+
+#button1 {
+    width: 40%;
+}
+
+#anuluj {
+    right: 45%;
+    bottom: 10%;
+    height: 5% ;
+    width: 10%;
+}
+
+#rejestr:hover{
+    background-color: aqua;
+}
+
+#anuluj:hover{
+    background-color: red;
+}
+
+#button1:hover {
+    background-color: burlywood;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#error {
+    color: red;
+    
+}
+
+
+body{
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/29/Polana_Bernadowa_G36.JPG);
+    background-attachment: scroll; 
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+}
+table{
+    width: 100%;
+}
+tr, td{
+    border: 1px solid black;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.panel-item{
+    display: block;
+    background-color: yellow;
+}
+.panel-item:hover{
+    background-color: firebrick;
+}
+
+.usun:hover{
+    background-color: brown;
+}
+
+.zatwierdz:hover{
+    background-color:aquamarine;
+}
