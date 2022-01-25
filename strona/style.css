@@ -198,9 +198,6 @@ a {
     
 }
 
-#zare{
-    background-color: aqua;
-}
 
 body{
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/29/Polana_Bernadowa_G36.JPG);
@@ -218,4 +215,11 @@ tr, td{
 img{
     width: 100%;
     height: 100%;
+}
+.panel-item{
+    display: block;
+    background-color: yellow;
+}
+.panel-item:hover{
+    background-color: firebrick;
 }
