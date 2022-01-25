@@ -64,7 +64,6 @@ try
                 throw new Exception($polaczenie->error);
             }
         }
-        
         $polaczenie->close();
     }
 }

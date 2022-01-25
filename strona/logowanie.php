@@ -33,6 +33,7 @@ else
             $_SESSION['id'] = $wiersz['id'];
             $wiersz = $rezultat->fetch_assoc();
             $_SESSION['user'] = $wiersz['login'];
+            $_SESSION['rola'] = $wiersz['rola'];
             
             unset($_SESSION['blad']);
             $rezultat->close();

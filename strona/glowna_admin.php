@@ -15,9 +15,9 @@
         header('Location: glowna_organizator.php');
         exit();
     }
-    elseif($_SESSION['rola']==4)
+    elseif($_SESSION['rola']==1)
     {
-        header('Location: glowna_admin.php');
+        header('Location: glowna.php');
         exit();
     }
 
@@ -28,7 +28,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <title>Strona główna</title>
+    <title>Strona główna-admin</title>
     <style>
         a {
             text-decoration: none;

@@ -10,9 +10,9 @@
         header('Location: glowna_trener.php');
         exit();
     }
-    elseif($_SESSION['rola']==3)
+    elseif($_SESSION['rola']==1)
     {
-        header('Location: glowna_organizator.php');
+        header('Location: glowna.php');
         exit();
     }
     elseif($_SESSION['rola']==4)
@@ -28,7 +28,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <title>Strona główna</title>
+    <title>Strona główna-organizator</title>
     <style>
         a {
             text-decoration: none;

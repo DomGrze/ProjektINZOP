@@ -5,9 +5,9 @@
         header('Location: index.php');
         exit();
     }
-    if($_SESSION['rola']==2)
+    if($_SESSION['rola']==1)
     {
-        header('Location: glowna_trener.php');
+        header('Location: glowna.php');
         exit();
     }
     elseif($_SESSION['rola']==3)
@@ -28,7 +28,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <title>Strona główna</title>
+    <title>Strona główna-trener</title>
     <style>
         a {
             text-decoration: none;

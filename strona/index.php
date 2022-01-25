@@ -20,20 +20,20 @@
 <body>
     <div id="container">
         <div id="header">
-            <div id="logo"><a href="index.php">logo <br>placeholder</div>
+            <div id="logo"><a href="index.php">logo </a><br>placeholder</div>
             <div id="nav">
-                <button id="button"><a href="faq.php">FAQ</a></button>
-                <button id="button"><a href="galeria.php">Galeria</a></button>
-                <button id="button"><a href="transmisja.php">Transmisja na żywo</a></button>
-                <button id="button"><a href="zaglosuj.php">Zagłosuj</a></button>
-                <button id="button"><a href="harmonogram.php">Harmonogram wystaw</a></button>
-                <button id="button"><a href="aktualnosci.php">Aktualności</a></button>
+                <button id="button" class="menu"><a href="faq.php">FAQ</a></button>
+                <button id="button" class="menu"><a href="galeria.php">Galeria</a></button>
+                <button id="button" class="menu"><a href="transmisja.php">Transmisja na żywo</a></button>
+                <button id="button" class="menu"><a href="zaglosuj.php">Zagłosuj</a></button>
+                <button id="button" class="menu"><a href="harmonogram.php">Harmonogram wystaw</a></button>
+                <button id="button" class="menu"><a href="aktualnosci.php">Aktualności</a></button>
             </div>
         </div>
         <div id="content">
             <div id="mid"><b></b>
                 <div id="mid-header">Aktualności</div>
-                <div id="mid-content">placeholder</div>
+                <div id="mid-content">Placeholder</div>
                 <!--Panel logowania-->
                 <div id="panel">
                     <div id="panel-header">Logowanie</div>
@@ -41,7 +41,7 @@
                         <form action="logowanie.php" method="post">
                             Login: <input type="text" name="login" required /><br /><br />
                             Hasło: <input type="password" name="password" required /> <br /><br />
-                            <input type="submit" value="Zaloguj się" /><br /><br />
+                            <input type="submit" id="rejestr" value="Zaloguj się" /><br /><br />
 
                         </form>
                         <button id="anuluj" onclick="anuluj()">anuluj</button><br />
@@ -85,7 +85,7 @@
                                 <input type="checkbox" required />Akceptuje <a href="regulamin.php"><u>regulamin</u></a><br />
                             </label>
                             <!-- Nie wiem czemu nie mogę zmienić nic w CSS dla tego przycisku -->
-                            <input type="submit" name="rejestr" value="Zarejestruj się" /><br /><br />
+                            <input type="submit" id="rejestr" value="Zarejestruj się" /><br /><br />
                         </form>
                         <button id="anuluj" onclick="anuluj()">anuluj</button>
                     </div>
@@ -103,6 +103,7 @@
                 <div id="right-bar-content3"><?php
         if(isset($_SESSION['blad'])) {
             echo $_SESSION['blad'];
+            unset($_SESSION['blad']);
         }
         ?></div>
                 <div id="right-bar-content4"></div>
