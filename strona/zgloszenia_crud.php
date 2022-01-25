@@ -33,16 +33,22 @@
                 <button id="button"><a href="transmisja.php">Transmisja na żywo</a></button>
                 <button id="button"><a href="#">Zagłosuj</a></button>
                 <button id="button"><a href="harmonogram.php">Harmonogram wystaw</a></button>
-                <button id="button"><a href="glowna.php">Aktualności</a></button>
+                <button id="button"><a href="aktualnosci.php">Aktualności</a></button>
             </div>
         </div>
         <div id="content">
             <div id="mid"><b></b>
-                <div id="mid-header">Aktualności</div>
+                <div id="mid-header">Odebrane zgłoszenia:</div>
                 <div id="mid-content">
                     <?php
-                        require_once("aktualnosci_display.php");
+                        require_once("zgloszenia_display.php");
                     ?>
+                    <form action="zgloszenia_display.php" method="post">
+                       <button name="zatwierdz" id="zatwierdz" name="zatwierdz">Zatwierdź</button>
+                        </form><br />
+                        <form action="zgloszenia_display.php" method="post">
+                       <button name="usun" id="usun" name="usun">Usuń zgłoszenie</button>
+                        </form>
                 </div>
             </div>
             <div id="right-bar">
@@ -106,6 +112,18 @@
         </div>
         <div id="footer"></div>
     </div>
+        <script>
+        function ukryj() {
+            document.getElementById("zatwierdz").style.display = "none";
+            document.getElementById("usun").style.display = "none";
+        }
+    </script>
+    <?php
+        if (isset($_SESSION['brak'])) 
+        {
+            echo '<script type="text/javascript">ukryj();</script>';
+        }
+        ?>
 </body>
 
 </html>

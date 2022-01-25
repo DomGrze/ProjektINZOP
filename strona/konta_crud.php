@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <title>Strona główna</title>
+    <title>Zarządzaj kontami</title>
     <style>
         a {
             text-decoration: none;
@@ -33,16 +33,43 @@
                 <button id="button"><a href="transmisja.php">Transmisja na żywo</a></button>
                 <button id="button"><a href="#">Zagłosuj</a></button>
                 <button id="button"><a href="harmonogram.php">Harmonogram wystaw</a></button>
-                <button id="button"><a href="glowna.php">Aktualności</a></button>
+                <button id="button"><a href="aktualnosci.php">Aktualności</a></button>
             </div>
         </div>
         <div id="content">
             <div id="mid"><b></b>
-                <div id="mid-header">Aktualności</div>
+                <div id="mid-header">Konta użytkowników:</div>
                 <div id="mid-content">
                     <?php
-                        require_once("aktualnosci_display.php");
+                        require_once("konta_display.php");
                     ?>
+                    <form id="pole" action="konta_crud.php" method="post">
+                        Podaj Id osoby do edycji konta:<input type="text" name="id_konta" required /><br />
+                       <button name="zatwierdz" id="zatwierdz" name="zatwierdz">Zatwierdź</button>
+                        </form><br />
+                        <!-- Dodać pod spodem puste tabele(może nie tabele tylko jak w rejestracji) do edycji w formsie, w pliku z action dodać ifa jeśli pole puste= dać wartość które były domyślnie-->
+                        <table id="zmiana">
+                            <tr>
+                                <td>Id</td>
+                                <td>Login</td>
+                                <td>Imię</td>
+                                <td>Nazwisko</td>
+                                <td>Data urodzenia</td>
+                                <td>Numer telefonu</td>
+                                <td>Email</td>
+                            </tr>
+                        </table>
+                        <form id="zmien" action="edytuj_konta_crud.php" method="post">
+                        <input type="number" name="id" />
+                        <input type="text" name="login" />
+                        <input type="text" name="imie" />
+                        <input type="text" name="nazwisko" />
+                        <input type="text" name="rola" />
+                        <input type="text" name="data_ur" />
+                        <input type="text" name="nr_tele" />
+                        <input type="text" name="email" />
+                        <br />
+                       <button name="zatwierdz" id="zatwierdz" name="zatwierdz">Zmień</button>
                 </div>
             </div>
             <div id="right-bar">
@@ -106,6 +133,20 @@
         </div>
         <div id="footer"></div>
     </div>
+    <script>
+        function ukryj() {
+            document.getElementById("pole").style.display = "none";
+            document.getElementById("zmien").style.display = "block";
+            document.getElementById("zmiana").style.display = "table";
+        }
+    </script>
+    <?php
+        if (isset($_SESSION['id_konta'])) 
+        {
+            echo '<script type="text/javascript">ukryj();</script>';
+            unset($_SESSION['id_konta']);
+        }
+        ?>
 </body>
 
 </html>
