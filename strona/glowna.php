@@ -41,7 +41,7 @@
 <body>
     <div id="container">
         <div id="header">
-            <div id="logo"><a href="index.php">logo <br>placeholder</div>
+            <div id="logo"><a href="index.php">logo</a><br>placeholder</div>
             <div id="nav">
                 <button id="button"><a href="faq.php">FAQ</a></button>
                 <button id="button"><a href="galeria.php">Galeria</a></button>

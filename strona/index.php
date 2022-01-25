@@ -20,7 +20,7 @@
 <body>
     <div id="container">
         <div id="header">
-            <div id="logo"><a href="index.php"></a>logo <br>placeholder</div>
+            <div id="logo"><a href="glowna.php"><img src=pies.png alt="pies logo"></a></div>
             <div id="nav">
                 <button id="button"><a href="faq.php">FAQ</a></button>
                 <button id="button"><a href="galeria.php">Galeria</a></button>
