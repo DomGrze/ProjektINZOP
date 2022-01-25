@@ -11,16 +11,32 @@
 <html lang="pl">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css">
-    <title>Strona główna</title>
+    <title>Modyfikuj wpis</title>
     <style>
         a {
             text-decoration: none;
             color: black
         }
+        input, textarea, select, button {
+              width : 200px;
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+        }
+        input:invalid {
+              border: 2px dashed red;
+        }
 
-    </style>
+        input:valid {
+              border: 2px solid black;
+        }
+        textarea{
+            width: 70%;
+            min-height: 200px;
+        }
+    </style> 
 </head>
 
 <body>
@@ -38,10 +54,26 @@
         </div>
         <div id="content">
             <div id="mid"><b></b>
-                <div id="mid-header">Aktualności</div>
+                <div id="mid-header">Zarządzaj wpisami</div>
                 <div id="mid-content">
-                    <?php
-                        require_once("aktualnosci_display.php");
+                   <?php
+                
+                        require_once "connect.php";
+                        $polaczenie = new mysqli($host,$db_user,$db_password,$db_name);
+                        $id_posta=$_POST['which'];
+                        $_SESSION['idpost']=$id_posta;
+                        mysqli_set_charset($polaczenie,"utf8");
+                        $sql="SELECT `informacje` FROM `ogloszenia` WHERE `id`='$id_posta'";
+                        $query=mysqli_query($polaczenie,$sql);
+                        echo '<form action="akcja.php" method="post">';
+                        while($res=mysqli_fetch_array($query)){
+                        echo '<textarea name=wpis_tresc>'.$res['informacje'].'</textarea><br>';
+                        }
+                        echo '<button name="akcja" value=1>Zapisz</button><br>';
+                        echo '<button name="akcja" value=2>USUŃ POST</button><br>';
+                        echo '<button><a href="modyfikuj_wpis.php">Anuluj</a></button>';
+                        echo '</form>';
+                        $polaczenie->close();
                     ?>
                 </div>
             </div>

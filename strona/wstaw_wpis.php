@@ -11,16 +11,32 @@
 <html lang="pl">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css">
-    <title>Strona główna</title>
+    <title>Wstawianie Aktualności</title>
     <style>
         a {
             text-decoration: none;
             color: black
         }
+        input, textarea, select, button {
+              width : 200px;
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+        }
+        input:invalid {
+              border: 2px dashed red;
+        }
 
-    </style>
+        input:valid {
+              border: 2px solid black;
+        }
+        textarea{
+            width: 70%;
+            min-height: 200px;
+        }
+    </style> 
 </head>
 
 <body>
@@ -38,11 +54,14 @@
         </div>
         <div id="content">
             <div id="mid"><b></b>
-                <div id="mid-header">Aktualności</div>
+                <div id="mid-header">Panel wstawiania aktualności</div>
                 <div id="mid-content">
-                    <?php
-                        require_once("aktualnosci_display.php");
-                    ?>
+                   <form name="dodawanie_wpisu" action="wpis_insert.php" method="post">
+                       <label for="wpis_tresc">Dodaj wpis:</label><br>
+                       <textarea name="wpis_tresc" required></textarea><br>
+                       <input type="submit" value="Dodaj"><input type="reset" value="resetuj">
+                    
+                   </form>
                 </div>
             </div>
             <div id="right-bar">

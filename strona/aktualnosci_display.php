@@ -2,8 +2,8 @@
     require_once "connect.php";
 
     $polaczenie = @new mysqli($host,$db_user,$db_password,$db_name);
-    
-    $selectquery='SELECT `informacje`, `data`, `organizator_id`,`godzina`, konta.imie, konta.nazwisko FROM `ogloszenia` JOIN organizatorzy ON ogloszenia.organizator_id=organizatorzy.id JOIN konta ON konta.id=organizatorzy.konto_id WHERE 1 ORDER BY ogloszenia.data, ogloszenia.godzina DESC LIMIT 10;';
+    mysqli_set_charset($polaczenie,"utf8");
+    $selectquery='SELECT `informacje`, `data`, `organizator_id`,`godzina`, konta.imie, konta.nazwisko FROM `ogloszenia` JOIN organizatorzy ON ogloszenia.organizator_id=organizatorzy.id JOIN konta ON konta.id=organizatorzy.konto_id WHERE 1 ORDER BY ogloszenia.data DESC, ogloszenia.godzina DESC LIMIT 10;';
     
     $query=mysqli_query($polaczenie,$selectquery);
     

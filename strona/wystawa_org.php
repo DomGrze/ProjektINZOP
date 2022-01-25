@@ -11,16 +11,28 @@
 <html lang="pl">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css">
-    <title>Strona główna</title>
+    <title>Organizowanie wystawy</title>
     <style>
         a {
             text-decoration: none;
             color: black
         }
+        input, textarea, select, button {
+              width : 200px;
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+        }
+        input:invalid {
+              border: 2px dashed red;
+        }
 
-    </style>
+        input:valid {
+              border: 2px solid black;
+        }
+    </style> 
 </head>
 
 <body>
@@ -38,11 +50,28 @@
         </div>
         <div id="content">
             <div id="mid"><b></b>
-                <div id="mid-header">Aktualności</div>
+                <div id="mid-header">Panel organizowania wystawy</div>
                 <div id="mid-content">
-                    <?php
-                        require_once("aktualnosci_display.php");
-                    ?>
+                   <form name="organizowanie_wystawy" action="wystawy_insert.php" method="post">
+                       <label for="wystawa_nazwa">Podaj nazwę wystawy:</label><br><input type=text name="wystawa_nazwa" title="podaj nazwę" required><br><br>
+                       <label for="wystawa_data">Podaj datę wystawy:</label><br><input type=date name="wystawa_data" required><br><br>
+                       <label for="wystawa_godzina">Podaj godzinę wystawy:</label><br><input type=time name="wystawa_godzina" required><br><br>
+                       <label for="wystawa_kategoria">Podaj kategorię wystawy wystawy:<br></label>
+                       <select name="wystawa kategoria" required > 
+                           <option value="Klasa młodszych szczeniąt">Klasa młodszych szczeniąt</option>
+                           <option value="Klasa szczeniąt">Klasa szczeniąt</option>
+                           <option value="Klasa młodzieży">Klasa młodzieży</option>
+                           <option value="Klasa pośrednia">Klasa pośrednia</option>
+                           <option value="Klasa otwarta">Klasa otwarta</option>
+                           <option value="Klasa użytkowa">Klasa użytkowa</option>
+                           <option value="Klasa championów">Klasa championów</option>
+                           <option value="Klasa weteranów">Klasa weteranów</option>
+                       </select><br><br>
+                       <label for="wystawa_liczba">Podaj liczbę uczestników wystawy:</label><br><input type=number name="wystawa_liczba"><br><br>
+                       <label for="wystawa_adres">Podaj liczbę adres wystawy:</label><br><input type=text name="wystawa_adres" required><br><br>
+                       <input type="submit" value="Dodaj"><input type="reset" value="resetuj">
+                    
+                   </form>
                 </div>
             </div>
             <div id="right-bar">
