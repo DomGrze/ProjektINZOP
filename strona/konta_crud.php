@@ -58,6 +58,7 @@
                            Email:<input type="email" name="email" />
                            <br /><br />
                         <input type="submit" name="zatwierdz" value="Zmień" onclick="" id="zatwierdz"/>
+                           <button id="anuluj1" name="anuluj1" onclick="pokaz()">Anuluj</button>
                     </form>
                         <button id="anuluj1" name="anuluj1" onclick="pokaz()">Anuluj</button>
                         <form id="zmien" action="edytuj_konta_crud.php" method="post">
