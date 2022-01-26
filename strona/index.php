@@ -80,8 +80,8 @@
                             <br />
                             Powtórz hasło: <input type="password" title="Od 6 do 20 znaków" id="password2" name="password" minlength="6" maxlength="20" required /> <br />
                             <br />
-                            Imię: <input type="text" name="imie" maxlength="30" required /><br /><br />
-                            Nazwisko: <input type="text" name="nazwisko" maxlength="30" required /><br /><br />
+                            Imię: <input type="text" name="imie" maxlength="30" required pattern="[a-zA-Z]" /><br /><br />
+                            Nazwisko: <input type="text" name="nazwisko" maxlength="30" required pattern="[a-zA-Z]"  /><br /><br />
                             Numer telefonu: <input type="number" name="nr_tel" maxlength="13" pattern="[0-9]" required /><br /><br />
                             Adres e-mail <input type="email" name="email" required /> <br />
                             Data urodzenia <input type="date" id="data_ur" name="data_ur" value="2000-01-01" max="" required /> <br />

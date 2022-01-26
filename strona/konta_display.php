@@ -1,13 +1,14 @@
 <?php
     require_once "connect.php";
 
-    $polaczenie = @new mysqli($host,$db_user,$db_password,$db_name);
-    
-    $selectquery='SELECT * FROM `konta` ORDER BY konta.id ASC;';
+    $polaczenie = new mysqli($host,$db_user,$db_password,$db_name);
+    mysqli_set_charset($polaczenie,"utf8");
+    $selectquery='SELECT * FROM `konta` ORDER BY konta.id ASC LIMIT 10;';
     
     $query=mysqli_query($polaczenie,$selectquery);
     
     $nums=mysqli_num_rows($query);
+    echo '<form action="edytuj_konta_crud.php" method="post">';
     echo '<table>';
         echo '<tr>';
             echo '<td>Id</td>';
@@ -20,13 +21,7 @@
             echo '<td>Email</td>';
         
         echo '</tr>';
-    if(isset($_POST['id_konta']))
-    {
-        $id=$_POST['id_konta'];
-        $selectquery='SELECT * FROM `konta` WHERE konta.id = $id;';
-        do {
-            $res=mysqli_fetch_array($query);
-        }while($res['id']!=$id);
+    while($res=mysqli_fetch_array($query)){
         echo '<tr>';
             echo '<td>'.$res['id'].'</td>';    
             echo '<td>'.$res['login'].'</td>';
@@ -35,27 +30,13 @@
             echo '<td>'.$res['rola'].'</td>'; 
             echo '<td>'.$res['data_urodzenia'].'</td>'; 
             echo '<td>'.$res['numer_telefonu'].'</td>'; 
-            echo '<td>'.$res['email'].'</td>'; 
-            echo '</tr>';
-        echo '</table>';
-        $_SESSION['id_konta']="xd";
-        unset($_POST['id_konta']);
+            echo '<td>'.$res['email'].'</td>';  
         
-    }else
-    {
-        while($res=mysqli_fetch_array($query)){
-            echo '<tr>';
-            echo '<td>'.$res['id'].'</td>';    
-            echo '<td>'.$res['login'].'</td>';
-            echo '<td>'.$res['imie'].'</td>'; 
-            echo '<td>'.$res['nazwisko'].'</td>'; 
-            echo '<td>'.$res['rola'].'</td>'; 
-            echo '<td>'.$res['data_urodzenia'].'</td>'; 
-            echo '<td>'.$res['numer_telefonu'].'</td>'; 
-            echo '<td>'.$res['email'].'</td>'; 
-            echo '</tr>';
-        }
-        echo '</table>';
+        $i=$res[0];
+        
+        echo '<td><button name="which" value="'.$i.'" type="submit">Edytuj</button></td>';
+        
+        echo '</tr>';
     }
-   
-?>
+    echo '</table>';
+    echo '</form>';

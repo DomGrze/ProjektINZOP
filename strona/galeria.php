@@ -15,10 +15,13 @@
     <link rel="stylesheet" href="style.css">
     <title>Galeria</title>
     <style>
-        a {
-            text-decoration: none;
-            color: black
-        }
+        #mid-content {
+    width: 99.8%;
+    height: 90%;
+    float: right;
+    border: 1px solid;
+    font-size: 16px;
+}
 
     </style>
 </head>
@@ -68,32 +71,32 @@ div.desc {
 
                   <div class="mySlides">
                     <div class="numbertext">1 / 6</div>
-                      <img src="wystawa-aport.jpg" style="width:100%">
+                      <img src="wystawa-aport.jpg" style="width:46%">
                   </div>
 
                   <div class="mySlides">
                     <div class="numbertext">2 / 6</div>
-                      <img src="wystawa-aport2.jpg" style="width:100%">
+                      <img src="wystawa-aport2.jpg" style="width:46%">
                   </div>
 
                   <div class="mySlides">
                     <div class="numbertext">3 / 6</div>
-                      <img src="wystawa-aport3.jpg" style="width:100%">
+                      <img src="wystawa-aport3.jpg" style="width:46%">
                   </div>
 
                   <div class="mySlides">
                     <div class="numbertext">4 / 6</div>
-                      <img src="wystawa-aport4.jpg" style="width:100%">
+                      <img src="wystawa-aport4.jpg" style="width:46%">
                   </div>
 
                   <div class="mySlides">
                     <div class="numbertext">5 / 6</div>
-                      <img src="wystawa-aport5.jpg" style="width:100%">
+                      <img src="wystawa-aport5.jpg" style="width:46%">
                   </div>
 
                   <div class="mySlides">
                     <div class="numbertext">6 / 6</div>
-                      <img src="wystawa-aport6.jpg" style="width:100%">
+                      <img src="wystawa-aport6.jpg" style="width:46%">
                   </div>
 
                   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
