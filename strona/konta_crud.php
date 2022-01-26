@@ -5,11 +5,7 @@
         header('Location: index.php');
         exit();
     }
-    if($_SESSION['rola']!=4)
-    {
-        header('Location: index.php');
-        exit();
-    }
+
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -47,6 +43,35 @@
                     <?php
                         require_once("konta_display.php");
                     ?>
+                    <form id="pole" action="konta_crud.php" method="post">
+                        Podaj Id osoby do edycji konta:<input type="text" name="id_konta" required /><br />
+                       <button name="zatwierdz" id="zatwierdz" name="zatwierdz">Zatwierdź</button>
+                        </form><br />
+                        <!-- Dodać pod spodem puste tabele(może nie tabele tylko jak w rejestracji) do edycji w formsie, w pliku z action dodać ifa jeśli pole puste= dać wartość które były domyślnie-->
+                        <form id="zmien" action="edytuj_konta_crud.php" method="post">
+                           Login:<input type="text" name="login" minlength="3" maxlength="20" pattern="[a-zA-Z0-9]+" /><br /><br />
+                           Imię:<input type="text" name="imie" maxlength="30" /><br /><br />
+                           Nazwisko:<input type="text" name="nazwisko" maxlength="30" /><br /><br />
+                           Rola:<input type="text" name="rola" pattern="[1-4]" title="Role symbolizują cyfry od 1 do 4" /><br /><br />
+                           Data Urodzenia:<input type="date" name="data_ur" id="data_ur" value="2000-01-01" max="" /><br /><br />
+                           Numer telefonu:<input type="number" name="nr_tele" maxlength="13" pattern="[0-9]" /><br /><br />
+                           Email:<input type="email" name="email" />
+                           <br /><br />
+                        <input type="submit" name="zatwierdz" value="Zmień" onclick="" id="zatwierdz"/>
+                           <button id="anuluj1" name="anuluj1" onclick="pokaz()">Anuluj</button>
+                    </form>
+                        <button id="anuluj1" name="anuluj1" onclick="pokaz()">Anuluj</button>
+                        <form id="zmien" action="edytuj_konta_crud.php" method="post">
+                        <input type="number" name="id" />
+                        <input type="text" name="login" />
+                        <input type="text" name="imie" />
+                        <input type="text" name="nazwisko" />
+                        <input type="text" name="rola" />
+                        <input type="text" name="data_ur" />
+                        <input type="text" name="nr_tele" />
+                        <input type="text" name="email" />
+                        <br />
+                       <button name="zatwierdz" id="zatwierdz" name="zatwierdz">Zmień</button>
                 </div>
             </div>
             <div id="right-bar">

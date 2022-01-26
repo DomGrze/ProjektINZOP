@@ -5,11 +5,6 @@
         header('Location: index.php');
         exit();
     }
-    if($_SESSION['rola']!=3)
-    {
-        header('Location: index.php');
-        exit();
-    }
 
 ?>
 <!DOCTYPE html>

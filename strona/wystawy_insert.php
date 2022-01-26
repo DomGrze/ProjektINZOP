@@ -13,9 +13,9 @@
     $wystawa_kategoria=$_POST['wystawa_kategoria'];
     $wystawa_adres=$_POST['wystawa_adres'];
     $wystawa_liczba=$_POST['wystawa_liczba'];
-    $wystawa_organizator=$_SESSION['id'];
+    
    
-    $query="INSERT INTO wystawy VALUES (NULL,'$wystawa_nazwa','$wystawa_data','$wystawa_godzina','$wystawa_kategoria','$wystawa_liczba','$wystawa_adres','$wystawa_organizator')";
+    $query="INSERT INTO wystawy VALUES (NULL,'$wystawa_nazwa','$wystawa_data','$wystawa_godzina','$wystawa_kategoria','$wystawa_liczba','$wystawa_adres',2)";
     mysqli_set_charset($polaczenie,"utf8");
     if(mysqli_query($polaczenie, $query)){
             echo "<h3>Pomyślnie dodano wystawę</h3>";
