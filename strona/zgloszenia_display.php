@@ -21,7 +21,7 @@
     if(isset($_POST['zatwierdz']))
     {
         $polaczenie->query("UPDATE zgloszenia SET zatwierdzono ='1' WHERE zgloszenia.id ='$id' ");
-        $polaczenie->query("INSERT INTO `uczestnicy`('id','wystawa_id','zgloszenie_id','punkty') VALUES (NULL,`$wystawa_id`,`$zgloszenie_id`,0)");
+        $polaczenie->query("INSERT INTO `uczestnicy`(`id`, `wystawa_id`, `zgloszenie_id`, `punkty`) VALUES (NULL,'$wystawa_id','$zgloszenie_id',0)");
         header('Location: zgloszenia_crud.php');
         unset($_POST['zatwierdz']);
     }
