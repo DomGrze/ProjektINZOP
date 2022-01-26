@@ -22,7 +22,7 @@ else
     $login = htmlentities($login, ENT_QUOTES, "UTF-8");
     $password = htmlentities($password, ENT_QUOTES, "UTF-8");
     
-    $sql = "SELECT SELECT `id`, `login`, `haslo`, `rola`, `imie`, `nazwisko`, `data_urodzenia`, `numer_telefonu`, `email` FROM konta WHERE login='$login' AND haslo='$password'";
+    $sql = "SELECT `id`, `login`, `haslo`, `rola`, `imie`, `nazwisko`, `data_urodzenia`, `numer_telefonu`, `email` FROM konta WHERE login='$login' AND haslo='$password'";
     
     if ($rezultat = @$polaczenie->query($sql))
     {
