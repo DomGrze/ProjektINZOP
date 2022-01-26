@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <title>Strona główna</title>
+    <title>FAQ</title>
     <style>
         a {
             text-decoration: none;
@@ -38,21 +38,41 @@
         </div>
         <div id="content">
             <div id="mid"><b></b>
-                <div id="mid-header">Aktualności</div>
+                <div id="mid-header">FAQ</div>
                 <div id="mid-content">
-                    <?php
-                        require_once("aktualnosci_display.php");
-                    ?>
+                    <h5>Czym jest wystawa psów?</h5>
+
+                    <p>Są to zawody, na których gromadzą się rasowe psy. Ocenia się je na podstawie różnych kryteriów, takich jak zwinność, tropienie, posłuszeństwo lub pasterstwo. Ważny jest także wygląd psa, który jest oceniany.</p>
+
+                    <h5>Jakie są klasy psów?</h5>
+
+                    <h6>Klasy psów</h6>
+                    <h6>Podstawowe:</h6>
+                    • młodszych szczeniąt – dla psów od 3 do 6 miesięcy
+                    • szczeniąt – dla psów od 6 do 9 miesięcy
+                    • młodzieży – dla psów od 9 do 18 miesięcy
+                    • pośrednia – dla psów od 15 – 24 miesięcy
+                    • otwarta – dla psów dorosłych i dojrzałych, w wieku powyżej 15 miesięcy
+                    <h6>Zaawansowane:</h6>
+                    • użytkowa – przeznaczona dla psów myśliwskich lub obronnych
+                    • championów – dla psów z dużymi osiągnięciami
+                    • weteranów – dla psów powyżej 8 roku życia<br>
+                    
+                    <h6>Jakie są nagrody za wygraną wystawę psów?</h6>
+
+                    <p>Nie wszystkie wystawy oferują nagrody finansowe. Często już ogromną nobilitacją są wysokie miejsca zajęte w konkursie.</p>
+
                 </div>
             </div>
             <div id="right-bar">
                 <div id="right-bar-header">
                     <?php
                         echo "Witaj &nbsp;".$_SESSION['user']."!";
-                    ?></div>
+                    ?>
+                </div>
                 <div id="right-bar-content1"><button id="button1"><a href="wyloguj.php">Wyloguj się</a></button></div>
                 <div id="right-bar-content2">
-                  <?php
+                    <?php
                         switch($_SESSION['rola']){
                             case 1:
                                     echo "Rola: Użytkownik";
@@ -73,7 +93,7 @@
                     ?>
                 </div>
                 <div id="right-bar-content3">
-                     <?php
+                    <?php
                         switch($_SESSION['rola']){
                             case 1:
                                 
@@ -101,7 +121,7 @@
                             break;
                         }
                     ?>
-                  
+
                 </div>
             </div>
         </div>

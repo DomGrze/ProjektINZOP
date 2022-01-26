@@ -11,16 +11,28 @@
 <html lang="pl">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css">
-    <title>Strona główna</title>
+    <title>Organizowanie szkolenia</title>
     <style>
         a {
             text-decoration: none;
             color: black
         }
+        input, textarea, select, button {
+              width : 200px;
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+        }
+        input:invalid {
+              border: 2px dashed red;
+        }
 
-    </style>
+        input:valid {
+              border: 2px solid black;
+        }
+    </style> 
 </head>
 
 <body>
@@ -38,11 +50,18 @@
         </div>
         <div id="content">
             <div id="mid"><b></b>
-                <div id="mid-header">Aktualności</div>
+                <div id="mid-header">Panel organizowania szkolenia</div>
                 <div id="mid-content">
-                    <?php
-                        require_once("aktualnosci_display.php");
-                    ?>
+                   <form name="organizowanie_szkolenia" action="szkolenie_insert.php" method="post">
+                       <label for="szkolenie_nazwa">Podaj nazwę szkolenia:</label><br><input type=text name="szkolenie_nazwa" title="podaj nazwę" required><br><br>
+                       <label for="szkolenie_data">Podaj datę szkolenia:</label><br><input type=date name="szkolenie_data" required><br><br>
+                       <label for="szkolenie_godzina">Podaj godzinę szkolenia:</label><br><input type=time name="szkolenie_godzina" required><br><br>
+                       <label for="szkolenie_adres">Podaj adres szkolenia:</label><br><input type=text name="szkolenie_adres" required><br><br>
+                       <label for="szkolenie_opis">Podaj opis szkolenia:</label><br>
+                       <textarea name="szkolenie_opis"></textarea><br><br>
+                       <input type="submit" value="Dodaj"><input type="reset" value="resetuj">
+                    
+                   </form>
                 </div>
             </div>
             <div id="right-bar">
@@ -97,7 +116,7 @@
                             case 4:
                                     echo 'Panel operatora: <br>';
                                     echo '<a href="zgloszenia_crud.php" class="panel-item">Zgłoszenia</a><br>';
-                                    echo '<a href="konta_crud.php" class="panel-item">Zarządzaj kontami</a><br>';
+                                    echo '<a href="konta_crud.php" class="panel-item">Zarządzaj kontem</a><br>';
                             break;
                         }
                     ?>

@@ -11,16 +11,32 @@
 <html lang="pl">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css">
-    <title>Strona główna</title>
+    <title>Harmonogram wystaw</title>
     <style>
         a {
             text-decoration: none;
             color: black
         }
+        input, textarea, select, button {
+              width : 200px;
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+        }
+        input:invalid {
+              border: 2px dashed red;
+        }
 
-    </style>
+        input:valid {
+              border: 2px solid black;
+        }
+        textarea{
+            width: 70%;
+            min-height: 200px;
+        }
+    </style> 
 </head>
 
 <body>
@@ -38,10 +54,10 @@
         </div>
         <div id="content">
             <div id="mid"><b></b>
-                <div id="mid-header">Aktualności</div>
+                <div id="mid-header">Harmonogram wystaw</div>
                 <div id="mid-content">
-                    <?php
-                        require_once("aktualnosci_display.php");
+                   <?php
+                        require_once("harmonogram_display.php");
                     ?>
                 </div>
             </div>
@@ -49,7 +65,7 @@
                 <div id="right-bar-header">
                     <?php
                         echo "Witaj &nbsp;".$_SESSION['user']."!";
-                    ?></div>
+                     ?></div>
                 <div id="right-bar-content1"><button id="button1"><a href="wyloguj.php">Wyloguj się</a></button></div>
                 <div id="right-bar-content2">
                   <?php
@@ -82,7 +98,6 @@
                             case 2:
                                     echo "Panel trenera: <br>";
                                     echo '<a href="szkolenie_org.php" class="panel-item">Organizowanie szkolenia</a><br>';
-                                    echo '<a href="#" class="panel-item">Zarzadzaj szkoleniem</a><br>';
                             break;
                                 
                             case 3:
@@ -97,7 +112,7 @@
                             case 4:
                                     echo 'Panel operatora: <br>';
                                     echo '<a href="zgloszenia_crud.php" class="panel-item">Zgłoszenia</a><br>';
-                                    echo '<a href="konta_crud.php" class="panel-item">Zarządzaj kontami</a><br>';
+                                    echo '<a href="konta_crud.php" class="panel-item">Zarządzaj kontem</a><br>';
                             break;
                         }
                     ?>

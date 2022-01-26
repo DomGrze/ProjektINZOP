@@ -22,7 +22,7 @@ else
     $login = htmlentities($login, ENT_QUOTES, "UTF-8");
     $password = htmlentities($password, ENT_QUOTES, "UTF-8");
     
-    $sql = "SELECT * FROM konta WHERE login='$login' AND haslo='$password'";
+    $sql = "SELECT SELECT `id`, `login`, `haslo`, `rola`, `imie`, `nazwisko`, `data_urodzenia`, `numer_telefonu`, `email` FROM konta WHERE login='$login' AND haslo='$password'";
     
     if ($rezultat = @$polaczenie->query($sql))
     {
@@ -30,11 +30,10 @@ else
         if($ilu_userow>0)
         {
             $_SESSION['zalogowany'] = true;
-            $_SESSION['id'] = $wiersz['id'];
             $wiersz = $rezultat->fetch_assoc();
             $_SESSION['user'] = $wiersz['login'];
             $_SESSION['rola'] = $wiersz['rola'];
-            
+            echo $wiersz[0];
             unset($_SESSION['blad']);
             $rezultat->close();
             header('Location: glowna.php');
